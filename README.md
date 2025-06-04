@@ -1,1 +1,1 @@
-# StaticChecker-Compiladores-Equipe09
+# StaticChecket-Compiladores-Equipe09
