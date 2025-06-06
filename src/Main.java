@@ -1,30 +1,34 @@
 package src;
 
-import java.io.File;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Uso: java Main <nome_do_arquivo_sem_extensao>");
-            return;
-        }
+        if (args.length == 0) return;
 
         String baseName = args[0];
         String filePath = baseName + ".251";
         File sourceFile = new File(filePath);
+        if (!sourceFile.exists()) return;
 
-        if (!sourceFile.exists()) {
-            System.out.println("Arquivo não encontrado: " + filePath);
-            return;
+        try (BufferedReader reader = new BufferedReader(new FileReader(sourceFile))) {
+            ReservedWords.initialize();
+            Lexer lexer = new Lexer(reader);
+
+            List<Token> tokens = new ArrayList<>();
+            Token token;
+            while ((token = lexer.nextToken()) != null) {
+                tokens.add(token);
+            }
+
+            LexReportGenerator.generate(baseName, tokens);
+            System.out.println("Relatorio Gerado");
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        try {
-            FileHandler.readFile(sourceFile);
-        } catch (Exception e) {
-            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
-        }
-
-        ReservedWords.initialize();
-
     }
 }
+
