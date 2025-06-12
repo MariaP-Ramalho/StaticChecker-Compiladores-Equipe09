@@ -10,7 +10,7 @@ Este projeto é um analisador léxico (Static Checker) desenvolvido para a lingu
 
 ## Como instalar o Java JDK
 
-1. Acesse: https://www.java.com/pt-BR/download/
+1. Acesse: https://www.oracle.com/br/java/technologies/downloads/
 2. Siga as instruções para realizar o download
 4. Reinicie o terminal
 
