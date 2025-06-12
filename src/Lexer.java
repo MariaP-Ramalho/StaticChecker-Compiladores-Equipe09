@@ -31,7 +31,6 @@ public class Lexer {
                 }
 
                 if (c == '"') {
-                    int start = charIndex;
                     StringBuilder full = new StringBuilder();
                     StringBuilder valid = new StringBuilder();
                     int count = 0;
