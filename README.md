@@ -1,5 +1,3 @@
-# StaticChecket-Compiladores-Equipe09
-
 # Static Checker - CangaCode2025-1
 
 Este projeto é um analisador léxico (Static Checker) desenvolvido para a linguagem CangaCode2025-1, conforme a especificação do curso de Compiladores da UCSal.
