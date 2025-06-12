@@ -24,7 +24,9 @@ public class Main {
             }
 
             LexReportGenerator.generate(baseName, tokens);
-            System.out.println("Relatorio Gerado");
+            TabReportGenerator.generate(baseName);
+
+            System.out.println("Relatorios Gerados");
 
         } catch (IOException e) {
             e.printStackTrace();
