@@ -30,6 +30,36 @@ public class Lexer {
                     continue;
                 }
 
+                if (c == '/' && charIndex + 1 < line.length()) {
+                    char next = line.charAt(charIndex + 1);
+
+                    if (next == '/') {
+                        break;
+                    }
+
+                    if (next == '*') {
+                        charIndex += 2;
+                        boolean endFound = false;
+
+                        while (lineIndex < lines.size()) {
+                            while (charIndex < lines.get(lineIndex).length()) {
+                                if (lines.get(lineIndex).charAt(charIndex) == '*' &&
+                                        charIndex + 1 < lines.get(lineIndex).length() &&
+                                        lines.get(lineIndex).charAt(charIndex + 1) == '/') {
+                                    charIndex += 2;
+                                    endFound = true;
+                                    break;
+                                }
+                                charIndex++;
+                            }
+                            if (endFound) break;
+                            lineIndex++;
+                            charIndex = 0;
+                        }
+                        continue;
+                    }
+                }
+
                 if (c == '"') {
                     StringBuilder full = new StringBuilder();
                     StringBuilder valid = new StringBuilder();
