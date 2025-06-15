@@ -9,8 +9,7 @@ public class Main {
         if (args.length == 0) return;
 
         String baseName = args[0];
-        String filePath = baseName + ".251";
-        File sourceFile = new File(filePath);
+        File sourceFile = new File(baseName + ".251");
         if (!sourceFile.exists()) return;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(sourceFile))) {
